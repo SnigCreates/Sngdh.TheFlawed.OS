@@ -2,50 +2,65 @@ import React from 'react';
 import StageOne from './components/StageOne';
 import StageTwo from './components/StageTwo';
 
-// Corrected Named Imports based on your file structure
+// Using the imports from your file structure
 import { Header } from './components/Header';
 import { IdentityTile } from './components/IdentityTile';
 import { GritStatTile } from './components/GritStatTile';
 import { BrandVaultTile } from './components/BrandVaultTile';
 import { TechnicalDeepDiveTile } from './components/TechnicalDeepDiveTile';
+import { LiveProductsTile } from './components/LiveProductsTile';
+import { SocialStickersTile } from './components/SocialStickersTile';
 
 function App() {
   return (
-    <div className="bg-[#0a0a0a] text-white selection:bg-white selection:text-black">
+    <div className="bg-[#0a0a0a] text-white selection:bg-white selection:text-black w-full min-h-screen">
       
-      {/* STAGE 1: IDENTITY ANCHOR */}
-      <section className="min-h-screen">
-        <StageOne />
-      </section>
+      {/* 1. STAGE ONE: IDENTITY ANCHOR */}
+      <StageOne />
 
-      {/* STAGE 2: THE MANIFESTO */}
-      <section className="min-h-screen">
-        <StageTwo />
-      </section>
+      {/* 2. STAGE TWO: MANIFESTO */}
+      <StageTwo />
 
-      {/* STAGE 3: THE SYSTEM (Your Current Bento Grid) */}
-      <main className="max-w-7xl mx-auto px-6 py-20 flex flex-col gap-6">
-        <Header />
-        
-        {/* Top Row Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-          <div className="md:col-span-6">
-            <IdentityTile />
+      {/* 3. STAGE THREE: THE BENTO SYSTEM */}
+      <div className="w-full bg-[#0a0a0a] pb-20">
+        <main className="max-w-[1400px] mx-auto px-6 flex flex-col gap-6">
+          
+          <Header />
+          
+          {/* THE MAIN GRID - Matching your Stage 3 Screenshots */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+            
+            {/* Row 1: Left Big Block */}
+            <div className="md:col-span-6">
+              <IdentityTile />
+            </div>
+
+            {/* Row 1: Right Side Blocks */}
+            <div className="md:col-span-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="md:col-span-1">
+                <GritStatTile />
+              </div>
+              <div className="md:col-span-1">
+                <BrandVaultTile />
+              </div>
+              <div className="md:col-span-2">
+                <LiveProductsTile />
+              </div>
+            </div>
+
+            {/* Row 2: Deep Dive Section */}
+            <div className="md:col-span-8">
+              <TechnicalDeepDiveTile />
+            </div>
+            
+            {/* Row 2: Social/Connect Section */}
+            <div className="md:col-span-4">
+              <SocialStickersTile />
+            </div>
+
           </div>
-          <div className="md:col-span-3">
-            <GritStatTile />
-          </div>
-          <div className="md:col-span-3">
-            <BrandVaultTile />
-          </div>
-        </div>
-
-        {/* Technical Deep Dive Row */}
-        <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
-           <TechnicalDeepDiveTile />
-        </div>
-      </main>
-
+        </main>
+      </div>
     </div>
   );
 }
