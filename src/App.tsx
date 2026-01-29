@@ -57,7 +57,7 @@ function App() {
                   <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center opacity-40">@</div>
                   <div>
                     <p className="text-[10px] uppercase tracking-widest opacity-30">Copy Email Address</p>
-                    <p className="text-sm font-mono opacity-60 group-hover:opacity-100 transition-opacity">admin@theflaw.os</p>
+                    <p className="text-sm font-mono opacity-60 group-hover:opacity-100 transition-opacity">sngdh.work@gmail.com</p>
                   </div>
                 </div>
                 <span className="opacity-20 group-hover:opacity-100 transition-all text-xl">→</span>
