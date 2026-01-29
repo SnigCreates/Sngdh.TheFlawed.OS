@@ -49,52 +49,43 @@ export function TechnicalDeepDiveTile() {
       />
 
       {/* Content */}
-      <div className="relative z-10">
-        <div className="flex items-start justify-between mb-6">
-          <div className="flex-1">
+      <div className="relative z-10 flex flex-col h-full">
+        {/* Header Section */}
+        <div className="mb-4">
+          <div className="flex items-start justify-between">
             {/* Badge */}
             <motion.div 
-              className="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-500/10 border border-blue-500/20 rounded-full mb-4"
+              className="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-500/10 border border-blue-500/20 rounded-full mb-3"
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
               <Radio className="w-4 h-4 text-blue-400" />
-              <span className="text-xs text-blue-400 uppercase tracking-wider">Research</span>
+              <span className="text-xs text-blue-400 uppercase tracking-wider">Specs</span>
             </motion.div>
 
-            {/* Title */}
-            <h3 className="text-2xl md:text-3xl text-white mb-2">Drone Systems & Research</h3>
-            <p className="text-sm text-gray-400">
-              Technical deep-dives into autonomous systems and economic modeling
-            </p>
+            {/* Icon (Absolute or smaller) */}
+            <motion.div 
+              className="w-10 h-10 bg-blue-500/10 border border-blue-500/20 rounded-xl flex items-center justify-center"
+              animate={{ rotate: [0, 5, 0, -5, 0] }}
+              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <svg className="w-5 h-5 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <rect x="3" y="3" width="18" height="18" rx="2" strokeWidth="1.5" />
+                <circle cx="12" cy="12" r="2" strokeWidth="1.5" />
+              </svg>
+            </motion.div>
           </div>
 
-          {/* Technical Icon */}
-          <motion.div 
-            className="w-16 h-16 bg-blue-500/10 border border-blue-500/20 rounded-2xl flex items-center justify-center"
-            animate={{
-              rotate: [0, 5, 0, -5, 0]
-            }}
-            transition={{
-              duration: 8,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-          >
-            <svg className="w-8 h-8 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <rect x="3" y="3" width="18" height="18" rx="2" strokeWidth="1.5" />
-              <line x1="9" y1="3" x2="9" y2="21" strokeWidth="1.5" />
-              <line x1="15" y1="3" x2="15" y2="21" strokeWidth="1.5" />
-              <line x1="3" y1="9" x2="21" y2="9" strokeWidth="1.5" />
-              <line x1="3" y1="15" x2="21" y2="15" strokeWidth="1.5" />
-              <circle cx="12" cy="12" r="2" strokeWidth="1.5" />
-            </svg>
-          </motion.div>
+          {/* Title */}
+          <h3 className="text-xl md:text-2xl text-white mb-2 leading-tight">Technical Layer: ECE</h3>
+          <p className="text-sm text-gray-400 line-clamp-3">
+            B.Tech in ECE. Hardware logic & user experience intersection. Researching 3D-printed aerodynamic systems.
+          </p>
         </div>
 
-        {/* Research Papers */}
-        <div className="space-y-3">
-          {papers.map((paper, index) => (
+        {/* Research Papers (Simplified for 1x1) */}
+        <div className="mt-auto space-y-2">
+          {papers.slice(0, 1).map((paper, index) => (
             <motion.a
               key={index}
               href="#"
@@ -103,25 +94,15 @@ export function TechnicalDeepDiveTile() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 + index * 0.1, duration: 0.5 }}
             >
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-4 hover:bg-white/10 hover:border-blue-500/30 transition-all duration-300">
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex items-start gap-3 flex-1">
-                    <FileText className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
-                    <div>
-                      <h4 className="text-white text-sm mb-1 group-hover/paper:text-blue-400 transition-colors">
-                        {paper.title}
-                      </h4>
-                      <p className="text-xs text-gray-500">{paper.category}</p>
-                    </div>
+              <div className="bg-white/5 border border-white/10 rounded-xl p-3 hover:bg-white/10 hover:border-blue-500/30 transition-all duration-300">
+                <div className="flex items-center gap-3">
+                  <FileText className="w-4 h-4 text-blue-400 flex-shrink-0" />
+                  <div className="flex-1 min-w-0">
+                    <h4 className="text-white text-xs truncate group-hover/paper:text-blue-400 transition-colors">
+                      {paper.title}
+                    </h4>
                   </div>
-
-                  {/* Arrow */}
-                  <motion.div
-                    whileHover={{ x: 3, y: -3 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                  >
-                    <ArrowUpRight className="w-4 h-4 text-gray-500 group-hover/paper:text-blue-400 transition-colors" />
-                  </motion.div>
+                  <ArrowUpRight className="w-3 h-3 text-gray-500 group-hover/paper:text-blue-400 transition-colors" />
                 </div>
               </div>
             </motion.a>

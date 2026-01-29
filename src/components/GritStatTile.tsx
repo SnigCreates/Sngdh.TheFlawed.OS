@@ -48,15 +48,17 @@ export function GritStatTile() {
           
           {/* Label */}
           <motion.p 
-            className="text-sm text-gray-400 leading-relaxed"
+            className="text-sm text-gray-400 leading-relaxed font-medium mb-2"
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.5, duration: 0.5 }}
           >
-            Academic Recovery
-            <br />
-            Progress
+            Module: Recovery_15/27
           </motion.p>
+          
+          <p className="text-xs text-gray-500 leading-snug">
+            The academic comeback as a case study in discipline.
+          </p>
         </div>
       </div>
 
@@ -91,7 +93,7 @@ export function GritStatTile() {
         </div>
 
         {/* Stat tag */}
-        <p className="text-xs text-gray-600 uppercase tracking-wider">The Grit Metric</p>
+        <p className="text-xs text-gray-600 uppercase tracking-wider">Figure-It-Out Engine</p>
       </div>
 
       {/* Floating particle */}

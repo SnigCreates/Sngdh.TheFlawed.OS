@@ -25,7 +25,7 @@ export function BrandVaultTile() {
           >
             <Sparkles className="w-4 h-4 text-purple-400" />
           </motion.div>
-          <h3 className="text-sm text-white">Brand Vault</h3>
+          <h3 className="text-sm text-white">Module: D2C_Architect</h3>
         </div>
       </div>
 
@@ -58,24 +58,29 @@ export function BrandVaultTile() {
       </div>
 
       {/* Bottom label */}
-      <div className="absolute bottom-0 left-0 right-0 z-20 p-4 bg-gradient-to-t from-black/80 to-transparent">
-        <div className="flex items-center justify-between">
-          <p className="text-xs text-gray-400">Creative Portfolio</p>
-          <div className="flex items-center gap-1">
-            {[0, 1, 2, 3].map((i) => (
-              <motion.div
-                key={i}
-                className="w-1.5 h-1.5 rounded-full bg-purple-500"
-                animate={{
-                  opacity: [0.3, 1, 0.3]
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  delay: i * 0.2
-                }}
-              />
-            ))}
+      <div className="absolute bottom-0 left-0 right-0 z-20 p-4 bg-gradient-to-t from-black/90 via-black/60 to-transparent">
+        <div className="flex flex-col gap-2">
+          <p className="text-xs text-gray-200 leading-relaxed">
+            Founding Wicknwondr and Glitch as exercises in aesthetic branding.
+          </p>
+          <div className="flex items-center justify-between">
+            <p className="text-[10px] text-gray-400 uppercase tracking-wider">Venture Tile</p>
+            <div className="flex items-center gap-1">
+              {[0, 1, 2, 3].map((i) => (
+                <motion.div
+                  key={i}
+                  className="w-1.5 h-1.5 rounded-full bg-purple-500"
+                  animate={{
+                    opacity: [0.3, 1, 0.3]
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    delay: i * 0.2
+                  }}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>

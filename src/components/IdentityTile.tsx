@@ -31,121 +31,86 @@ export function IdentityTile() {
         />
       </motion.div>
 
-      {/* Floating orb */}
-      <motion.div
-        className="absolute top-1/4 right-1/4 w-48 h-48 bg-purple-500/20 rounded-full blur-3xl"
-        animate={{
-          scale: [1, 1.3, 1],
-          opacity: [0.2, 0.4, 0.2],
-          x: [0, 30, 0],
-          y: [0, -30, 0]
-        }}
-        transition={{
-          duration: 10,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
+      {/* Double Exposure Portrait Anchor */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-[#121212]" />
+        
+        {/* Main Portrait Layer */}
+        <div className="absolute inset-0 opacity-60 mix-blend-screen">
+          <img 
+            src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop" 
+            alt="Portrait"
+            className="w-full h-full object-cover object-center filter grayscale contrast-125" 
+          />
+        </div>
 
-      {/* Content */}
-      <div className="relative z-10">
-        {/* Status Badge */}
+        {/* Secondary Exposure Layer (Nature/Texture) */}
+        <div className="absolute inset-0 opacity-40 mix-blend-overlay">
+          <img 
+            src="https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?q=80&w=1000&auto=format&fit=crop" 
+            alt="Texture"
+            className="w-full h-full object-cover object-center filter contrast-150" 
+          />
+        </div>
+
+        {/* Gradient Overlays for Text Readability */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-[#121212]/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#121212]/80 via-transparent to-transparent" />
+      </div>
+
+      {/* Content Overlay */}
+      <div className="relative z-10 h-full flex flex-col justify-between">
+        {/* Top Label */}
         <motion.div 
-          className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full mb-8"
-          whileHover={{ scale: 1.05 }}
-          transition={{ type: "spring", stiffness: 300 }}
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3, duration: 0.8 }}
         >
-          <span className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
-          <span className="text-xs text-emerald-400 uppercase tracking-wider">Available for Projects</span>
+          <p className="text-xs md:text-sm text-gray-300 font-mono tracking-widest uppercase">
+            Sngdh [v1.0]
+          </p>
         </motion.div>
 
-        {/* Name & Title */}
-        <div className="mb-8">
+        {/* Main Title */}
+        <div className="space-y-2">
           <motion.h1 
-            className="text-6xl md:text-7xl lg:text-8xl text-white mb-4 tracking-tight"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
+            className="text-5xl md:text-7xl lg:text-8xl font-sans font-bold text-white tracking-tighter leading-none"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
           >
-            Your Name
+            The Flaw
+            <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">
+              OS
+            </span>
           </motion.h1>
           
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-            className="flex items-center gap-3 mb-6"
+          <motion.p
+            className="text-sm md:text-base text-gray-400 max-w-md font-light"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.7, duration: 0.8 }}
           >
-            <div className="w-12 h-px bg-gradient-to-r from-purple-500 to-blue-500" />
-            <p className="text-lg text-gray-400">Product Engineer & System Designer</p>
-          </motion.div>
+            Architecting identity through functional imperfection.
+          </motion.p>
         </div>
 
-        {/* Mission Statement */}
-        <motion.p 
-          className="text-xl md:text-2xl text-gray-300 leading-relaxed max-w-2xl"
+        {/* Bottom Status */}
+        <motion.div 
+          className="flex items-center gap-3"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.7, duration: 0.8 }}
+          transition={{ delay: 0.9, duration: 0.8 }}
         >
-          Building systematic solutions at the intersection of{' '}
-          <span className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-            engineering rigor
-          </span>
-          {' '}and{' '}
-          <span className="bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">
-            creative innovation
-          </span>
-          .
-        </motion.p>
-      </div>
-
-      {/* Bottom Section */}
-      <div className="relative z-10 flex items-center justify-between pt-8 border-t border-white/10">
-        <div className="flex items-center gap-6">
-          <div>
-            <p className="text-xs text-gray-500 mb-1 uppercase tracking-wider">Focus</p>
-            <p className="text-sm text-white">Founder's Office Operations</p>
-          </div>
-          <div>
-            <p className="text-xs text-gray-500 mb-1 uppercase tracking-wider">Expertise</p>
-            <p className="text-sm text-white">AI-Augmented Systems</p>
-          </div>
-        </div>
-
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          transition={{ type: "spring", stiffness: 300 }}
-        >
-          <Sparkles className="w-6 h-6 text-purple-400" />
+          <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse" />
+          <span className="text-xs text-gray-400 uppercase tracking-wider">System Online</span>
         </motion.div>
       </div>
 
-      {/* Decorative dots */}
+      {/* Interactive Hover Glitch */}
       <motion.div
-        className="absolute top-10 right-10 w-2 h-2 bg-purple-500 rounded-full"
-        animate={{
-          scale: [1, 1.5, 1],
-          opacity: [0.3, 0.8, 0.3]
-        }}
-        transition={{
-          duration: 3,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-      />
-      <motion.div
-        className="absolute bottom-20 left-10 w-2 h-2 bg-blue-500 rounded-full"
-        animate={{
-          scale: [1, 1.5, 1],
-          opacity: [0.3, 0.8, 0.3]
-        }}
-        transition={{
-          duration: 4,
-          repeat: Infinity,
-          ease: "easeInOut",
-          delay: 1
-        }}
+        className="absolute inset-0 bg-white/5 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
       />
     </motion.div>
   );

@@ -33,13 +33,13 @@ export function EngineTile() {
               transition={{ type: "spring", stiffness: 300 }}
             >
               <Cpu className="w-4 h-4 text-emerald-400" />
-              <span className="text-xs text-emerald-400 uppercase tracking-wider">Operating System</span>
+              <span className="text-xs text-emerald-400 uppercase tracking-wider">Personal Brand</span>
             </motion.div>
 
             {/* Title */}
-            <h3 className="text-2xl md:text-3xl text-white mb-2">AI-Augmented SOP</h3>
+            <h3 className="text-2xl md:text-3xl text-white mb-2">The Flaw Philosophy</h3>
             <p className="text-sm text-gray-400 max-w-md">
-              Systematic operating procedure integrating AI at every development lifecycle stage
+              My personal branding framework. It’s about documenting the journey from system failure to stable build. Every project here is a patch in the OS.
             </p>
           </div>
 
